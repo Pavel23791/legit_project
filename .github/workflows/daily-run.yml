@@ -3,7 +3,7 @@ name: Daily Run
 on:
   schedule:
     - cron: '10 20 * * *'
-    - branches: [ main ]
+
   push:
     branches: [ main ]
   pull_request:
