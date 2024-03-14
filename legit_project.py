@@ -48,11 +48,11 @@ class Test_legit_project():
         self.browser = playwright.chromium.launch(channel='msedge', headless=False)  # Set headless=False to see the browser UI
         self.page = self.browser.new_page()
 
-    def test__legit_project(self):
+    def test__legit_project(self, username, password):
         '''
         The test flow every assert is a step.
         '''
-        assert self.connect_to_the_site(), print("Failed to connect to the website")
+        assert self.connect_to_the_site(username, password), print("Failed to connect to the website")
         assert self.change_and_add_to_cart(), print("Failed change order amount and add it to cart")
         assert self.verify_shopping_cart(), print("Failed to verify the shopping cart")
         assert self.proceed_to_checkout(), print("Failed to perform checkout")
@@ -60,17 +60,17 @@ class Test_legit_project():
 
         
 
-    def connect_to_the_site(self):
+    def connect_to_the_site(self, username, password):
         '''
-        func to connect to the site using the cred from the yaml file
+        func to connect to the site using the cred from command line
         return True if connected
         False if not
         '''
         try:
             self.page.goto(self.config['web_link'])
             self.page.wait_for_load_state('load')
-            self.page.locator('input[name="username"]').fill(self.config['user_name'])
-            self.page.locator('input[name="password"]').type(self.config['password'], delay=50)
+            self.page.locator('input[name="username"]').fill(username)
+            self.page.locator('input[name="password"]').type(password, delay=50)
             self.page.get_by_role('button', name='Sign in').click()
             
             # Wait for the page to load with a timeout of 10 seconds
