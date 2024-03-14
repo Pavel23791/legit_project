@@ -1,0 +1,21 @@
+name: Daily Run
+
+on:
+  schedule:
+    # Runs at 07:00 UTC which is 10:00 AM in Israel (UTC+3 during daylight saving time)
+    - cron: '0 7 * * *'
+
+jobs:
+  run-pytest:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python environment
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'  # Specify the version of Python you need
+    - name: Install dependencies
+      run: pip install -r requirements.txt  # If you have a requirements.txt file
+    - name: Run pytest
+      run: pytest legit_project.py
