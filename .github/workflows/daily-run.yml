@@ -18,4 +18,4 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt  # If you have a requirements.txt file
     - name: Run pytest
-      run: pytest legit_project.py
+      run: pytest legit_project.py --username ${{ secrets.USER_NAME }} --password ${{ secrets.USER_PASS }}
