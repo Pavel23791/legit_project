@@ -4,11 +4,6 @@ on:
   schedule:
     - cron: '00 08 * * *'
 
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
 jobs:
   run-pytest:
     runs-on: windows-latest
