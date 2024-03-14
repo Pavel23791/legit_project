@@ -1,0 +1,5 @@
+web_link: https://main.d2t1pk7fjag8u6.amplifyapp.com
+user_name: 
+password: 
+products_to_change: {'1': '5', '3': '2'} #{product num: <num> , Quantity: <num>}
+shipping_address: test location 23/22
