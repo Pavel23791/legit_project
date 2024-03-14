@@ -1,6 +1,8 @@
 name: Daily Run
 
 on:
+  schedule:
+    - cron: '00 20 * * *'
   push:
     branches: [ main ]
   pull_request:
