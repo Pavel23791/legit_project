@@ -30,7 +30,7 @@ class Test_legit_log_on_screen():
                 pytest.exit("Failed to get configuration file", returncode=3)
 
         playwright = sync_playwright().start()
-        self.browser = playwright.chromium.launch(channel='msedge', headless=False)  # Set headless=False to see the browser UI
+        self.browser = playwright.chromium.launch(channel='chrome', headless=False)  # Set headless=False to see the browser UI
         self.page = self.browser.new_page()
     
     @pytest.mark.parametrize('test_mail', test_values)

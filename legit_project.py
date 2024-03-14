@@ -45,7 +45,7 @@ class Test_legit_project():
         
 
         playwright = sync_playwright().start()
-        self.browser = playwright.chromium.launch(channel='msedge', headless=False)  # Set headless=False to see the browser UI
+        self.browser = playwright.chromium.launch(channel='chrome', headless=False)  # Set headless=False to see the browser UI
         self.page = self.browser.new_page()
 
     def test__legit_project(self, username, password):
