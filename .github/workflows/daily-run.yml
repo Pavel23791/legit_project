@@ -2,7 +2,7 @@ name: Daily Run
 
 on:
   schedule:
-    - cron: '10 20 * * *'
+    - cron: '*/5 * * * *'
 
   push:
     branches: [ main ]
